@@ -16,7 +16,7 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding-top: 10px;
         }
         .header h1 {
@@ -30,13 +30,13 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .stat-card {
             background: #252542;
             border: 1px solid #333355;
             border-radius: 12px;
-            padding: 12px 5px;
+            padding: 15px 5px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -46,19 +46,19 @@
             border-color: #00d4ff;
         }
         .stat-value {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: #00d4ff;
         }
         .stat-label {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             opacity: 0.7;
-            margin-top: 3px;
+            margin-top: 5px;
         }
         .stat-hint {
-            font-size: 0.5rem;
+            font-size: 0.55rem;
             opacity: 0.4;
-            margin-top: 2px;
+            margin-top: 3px;
         }
         
         /* 详情弹窗 */
@@ -132,14 +132,14 @@
         .agent-item {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 12px;
             background: #252542;
             border-radius: 10px;
         }
         .agent-icon { font-size: 1.3rem; margin-right: 12px; }
         .agent-info { flex: 1; }
         .agent-name { font-size: 0.85rem; font-weight: 500; }
-        .agent-desc { font-size: 0.7rem; opacity: 0.6; }
+        .agent-desc { font-size: 0.7rem; opacity: 0.6; margin-top: 2px; }
         .agent-status {
             padding: 3px 10px;
             border-radius: 10px;
@@ -169,7 +169,7 @@
         .chart-bar-item {
             flex: 1;
             background: #00d4ff;
-            border-radius: 4px 4px 0 0;
+            border-radius: 4px;
             min-height: 10px;
         }
         .chart-labels {
@@ -184,14 +184,14 @@
         .monitor-section {
             background: #252542;
             border-radius: 16px;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
             border: 1px solid #333355;
         }
         .monitor-title {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #00d4ff;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -200,7 +200,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
         }
         .live-dot {
             width: 8px;
@@ -216,31 +216,31 @@
         .metric-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             align-items: center;
         }
         .metric-row:last-child { margin-bottom: 0; }
-        .metric-label { font-size: 0.8rem; opacity: 0.8; width: 50px; }
+        .metric-label { font-size: 0.85rem; opacity: 0.8; width: 50px; }
         .metric-bar {
             flex: 1;
-            height: 8px;
+            height: 10px;
             background: #333355;
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
-            margin: 0 10px;
+            margin: 0 12px;
         }
         .metric-fill {
             height: 100%;
-            border-radius: 4px;
+            border-radius: 5px;
             transition: width 0.5s ease;
         }
         .metric-fill.cpu { background: #00d4ff; }
         .metric-fill.mem { background: #4ade80; }
         .metric-fill.disk { background: #facc15; }
         .metric-value {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: bold;
-            min-width: 40px;
+            min-width: 45px;
             text-align: right;
         }
         
@@ -248,92 +248,83 @@
         .task-queue {
             background: #252542;
             border-radius: 16px;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
             border: 1px solid #333355;
         }
         .queue-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
-        .queue-title { font-size: 0.75rem; color: #00d4ff; }
+        .queue-title { font-size: 0.8rem; color: #00d4ff; }
         .queue-count {
             background: #1e3a5f;
             color: #00d4ff;
-            padding: 2px 10px;
+            padding: 3px 12px;
             border-radius: 12px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
         }
         .task-item {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 12px;
             background: #1a1a2e;
             border-radius: 10px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             border-left: 3px solid;
         }
         .task-item:last-child { margin-bottom: 0; }
         .task-item.running { border-left-color: #00d4ff; }
         .task-item.pending { border-left-color: #facc15; }
         .task-item.completed { border-left-color: #4ade80; }
-        .task-icon { font-size: 1.2rem; margin-right: 10px; }
+        .task-icon { font-size: 1.3rem; margin-right: 12px; }
         .task-info { flex: 1; }
-        .task-name { font-size: 0.8rem; font-weight: 500; }
-        .task-meta { font-size: 0.65rem; opacity: 0.6; margin-top: 2px; }
+        .task-name { font-size: 0.85rem; font-weight: 500; }
+        .task-meta { font-size: 0.7rem; opacity: 0.6; margin-top: 3px; }
         .task-status {
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 8px;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
         }
         .status-running { background: #1e3a5f; color: #00d4ff; }
         .status-pending { background: #3a3a1e; color: #facc15; }
         .status-completed { background: #1e3a2f; color: #4ade80; }
         
-        /* 工作流和 Agents */
-        .section { margin-bottom: 15px; }
-        .section-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #00d4ff;
-            margin-bottom: 10px;
-            padding-left: 5px;
-        }
-        .grid {
+        /* 快捷操作 */
+        .quick-actions {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
-        .btn {
+        .quick-btn {
             background: #252542;
             border: 1px solid #333355;
             border-radius: 12px;
-            padding: 12px 8px;
+            padding: 15px;
             color: #fff;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 8px;
         }
-        .btn:hover, .btn:active {
+        .quick-btn:hover, .quick-btn:active {
             background: #2d2d52;
             border-color: #00d4ff;
         }
-        .btn-icon { font-size: 1.5rem; }
-        .btn-text { text-align: center; line-height: 1.2; }
         
         .footer {
             text-align: center;
-            padding: 15px;
-            font-size: 0.7rem;
+            padding: 20px;
+            font-size: 0.75rem;
             opacity: 0.5;
             border-top: 1px solid #333355;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -365,6 +356,16 @@
             <div class="stat-label">运行</div>
             <div class="stat-hint">点击查看</div>
         </div>
+    </div>
+    
+    <!-- 快捷操作 -->
+    <div class="quick-actions">
+        <button class="quick-btn" onclick="sendCommand('status')">
+            <span>📊</span> 系统状态
+        </button>
+        <button class="quick-btn" onclick="sendCommand('agents')">
+            <span>👥</span> 所有 Agents
+        </button>
     </div>
     
     <!-- Agents 详情弹窗 -->
@@ -428,14 +429,6 @@
                     <div class="agent-info">
                         <div class="agent-name">ai_content_agent</div>
                         <div class="agent-desc">AI内容 · 文案生成</div>
-                    </div>
-                    <span class="agent-status status-online">在线</span>
-                </div>
-                <div class="agent-item">
-                    <span class="agent-icon">🤖</span>
-                    <div class="agent-info">
-                        <div class="agent-name">main</div>
-                        <div class="agent-desc">主代理 · 系统核心</div>
                     </div>
                     <span class="agent-status status-online">在线</span>
                 </div>
@@ -626,62 +619,8 @@
         </div>
     </div>
     
-    <!-- 工作流 -->
-    <div class="section">
-        <div class="section-title">工作流</div>
-        <div class="grid">
-            <button class="btn" onclick="sendCommand('workflow_a')">
-                <span class="btn-icon">🎯</span>
-                <span class="btn-text">运营活动策划</span>
-            </button>
-            <button class="btn" onclick="sendCommand('workflow_b')">
-                <span class="btn-icon">📊</span>
-                <span class="btn-text">数据诊断分析</span>
-            </button>
-            <button class="btn" onclick="sendCommand('workflow_c')">
-                <span class="btn-icon">📝</span>
-                <span class="btn-text">需求工程/PRD</span>
-            </button>
-            <button class="btn" onclick="sendCommand('workflow_d')">
-                <span class="btn-icon">📱</span>
-                <span class="btn-text">内容发布管理</span>
-            </button>
-        </div>
-    </div>
-    
-    <!-- Agents -->
-    <div class="section">
-        <div class="section-title">专业 Agents</div>
-        <div class="grid">
-            <button class="btn" onclick="sendCommand('data_analyst')">
-                <span class="btn-icon">🔍</span>
-                <span class="btn-text">数据分析师</span>
-            </button>
-            <button class="btn" onclick="sendCommand('product_prd')">
-                <span class="btn-icon">📋</span>
-                <span class="btn-text">PRD撰写</span>
-            </button>
-            <button class="btn" onclick="sendCommand('operation_campaign')">
-                <span class="btn-icon">📢</span>
-                <span class="btn-text">运营策划</span>
-            </button>
-            <button class="btn" onclick="sendCommand('risk_control')">
-                <span class="btn-icon">🛡️</span>
-                <span class="btn-text">风险审查</span>
-            </button>
-            <button class="btn" onclick="sendCommand('content_publishing')">
-                <span class="btn-icon">🎨</span>
-                <span class="btn-text">内容发布</span>
-            </button>
-            <button class="btn" onclick="sendCommand('ai_content')">
-                <span class="btn-icon">✨</span>
-                <span class="btn-text">AI内容生成</span>
-            </button>
-        </div>
-    </div>
-    
     <div class="footer">
-        OpenClaw v1.0 | Ubuntu 24.04 | Kimi K2.5
+        OpenClaw v1.0 | Ubuntu 24.04 | Kimi K2.5 | 8 Agents Ready
     </div>
     
     <script>
