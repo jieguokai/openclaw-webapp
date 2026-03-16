@@ -16,126 +16,193 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-top: 10px;
         }
         .header h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             background: linear-gradient(90deg, #00d4ff, #7b2cbf);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
         }
-        .header p { opacity: 0.7; font-size: 0.85rem; }
+        .header p { opacity: 0.7; font-size: 0.8rem; }
         
-        /* 系统状态卡片 */
+        /* 实时系统监控 */
+        .monitor-section {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .monitor-title {
+            font-size: 0.75rem;
+            color: #00d4ff;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+        }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .metric-row:last-child { margin-bottom: 0; }
+        .metric-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        .metric-bar {
+            width: 60%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .metric-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        .metric-fill.cpu { background: linear-gradient(90deg, #00d4ff, #7b2cbf); }
+        .metric-fill.mem { background: linear-gradient(90deg, #4ade80, #22c55e); }
+        .metric-fill.disk { background: linear-gradient(90deg, #facc15, #eab308); }
+        .metric-value {
+            font-size: 0.75rem;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: right;
+        }
+        
+        /* 使用统计 */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
         }
         .stat-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 12px;
-            padding: 12px;
+            padding: 10px 5px;
             text-align: center;
         }
         .stat-value {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #00d4ff;
         }
         .stat-label {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             opacity: 0.7;
-            margin-top: 4px;
+            margin-top: 2px;
         }
         
-        .section { margin-bottom: 20px; }
+        /* 任务队列 */
+        .task-queue {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .queue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .queue-title {
+            font-size: 0.75rem;
+            color: #00d4ff;
+        }
+        .queue-count {
+            background: rgba(0,212,255,0.2);
+            color: #00d4ff;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border-left: 3px solid;
+        }
+        .task-item:last-child { margin-bottom: 0; }
+        .task-item.running { border-left-color: #00d4ff; }
+        .task-item.pending { border-left-color: #facc15; }
+        .task-item.completed { border-left-color: #4ade80; }
+        .task-icon { font-size: 1.2rem; margin-right: 10px; }
+        .task-info { flex: 1; }
+        .task-name { font-size: 0.8rem; font-weight: 500; }
+        .task-meta { font-size: 0.65rem; opacity: 0.6; margin-top: 2px; }
+        .task-status {
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.6rem;
+        }
+        .status-running { background: rgba(0,212,255,0.2); color: #00d4ff; }
+        .status-pending { background: rgba(250,204,21,0.2); color: #facc15; }
+        .status-completed { background: rgba(74,222,128,0.2); color: #4ade80; }
+        
+        /* 工作流和 Agents */
+        .section { margin-bottom: 15px; }
         .section-title {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #00d4ff;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding-left: 5px;
         }
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         .btn {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 15px 10px;
+            border-radius: 12px;
+            padding: 12px 8px;
             color: #fff;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .btn:hover, .btn:active {
             background: rgba(255,255,255,0.1);
             border-color: #00d4ff;
             transform: translateY(-2px);
         }
-        .btn-icon { font-size: 1.8rem; }
-        .btn-text { text-align: center; line-height: 1.2; font-size: 0.75rem; }
-        .btn-full {
-            grid-column: span 2;
-            flex-direction: row;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #00d4ff20, #7b2cbf20);
-        }
-        
-        /* 最近任务 */
-        .task-list {
-            background: rgba(0,0,0,0.2);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 15px;
-        }
-        .task-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.8rem;
-        }
-        .task-item:last-child { border-bottom: none; }
-        .task-status {
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.65rem;
-        }
-        .status-done { background: rgba(74,222,128,0.2); color: #4ade80; }
-        .status-pending { background: rgba(250,204,21,0.2); color: #facc15; }
-        
-        /* 快捷链接 */
-        .quick-links {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        .quick-link {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 8px 15px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            cursor: pointer;
-        }
+        .btn-icon { font-size: 1.5rem; }
+        .btn-text { text-align: center; line-height: 1.2; }
         
         .footer {
             text-align: center;
@@ -143,7 +210,6 @@
             font-size: 0.7rem;
             opacity: 0.5;
             border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -153,53 +219,87 @@
         <p>智能工作流控制台</p>
     </div>
     
-    <!-- 系统状态 -->
+    <!-- 使用统计 -->
     <div class="stats-grid">
         <div class="stat-card">
-            <div class="stat-value">🟢</div>
-            <div class="stat-label">系统在线</div>
+            <div class="stat-value">8</div>
+            <div class="stat-label">Agents</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">Kimi</div>
-            <div class="stat-label">当前模型</div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">任务</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">8h+</div>
-            <div class="stat-label">运行时间</div>
+            <div class="stat-value">98%</div>
+            <div class="stat-label">成功率</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">27%</div>
-            <div class="stat-label">磁盘使用</div>
+            <div class="stat-value">8h</div>
+            <div class="stat-label">运行</div>
         </div>
     </div>
     
-    <!-- 快捷链接 -->
-    <div class="section">
-        <div class="section-title">快捷操作</div>
-        <div class="quick-links">
-            <div class="quick-link" onclick="sendCommand('status')">📊 状态</div>
-            <div class="quick-link" onclick="sendCommand('model')">🤖 模型</div>
-            <div class="quick-link" onclick="sendCommand('agents')">👥 Agents</div>
-            <div class="quick-link" onclick="sendCommand('help')">❓ 帮助</div>
+    <!-- 实时系统监控 -->
+    <div class="monitor-section">
+        <div class="monitor-title">
+            <span>实时系统监控</span>
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span>LIVE</span>
+            </div>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">CPU</span>
+            <div class="metric-bar">
+                <div class="metric-fill cpu" style="width: 4%"></div>
+            </div>
+            <span class="metric-value">4%</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">内存</span>
+            <div class="metric-bar">
+                <div class="metric-fill mem" style="width: 14%"></div>
+            </div>
+            <span class="metric-value">14%</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">磁盘</span>
+            <div class="metric-bar">
+                <div class="metric-fill disk" style="width: 27%"></div>
+            </div>
+            <span class="metric-value">27%</span>
         </div>
     </div>
     
-    <!-- 最近任务 -->
-    <div class="section">
-        <div class="section-title">最近任务</div>
-        <div class="task-list">
-            <div class="task-item">
-                <span>🎛️ Web App 部署</span>
-                <span class="task-status status-done">完成</span>
+    <!-- 任务队列 -->
+    <div class="task-queue">
+        <div class="queue-header">
+            <span class="queue-title">任务队列</span>
+            <span class="queue-count">3 个任务</span>
+        </div>
+        <div class="task-item running">
+            <span class="task-icon">🔄</span>
+            <div class="task-info">
+                <div class="task-name">Web App 部署</div>
+                <div class="task-meta">运行中 · 2分钟前</div>
             </div>
-            <div class="task-item">
-                <span>🤖 Agent 菜单配置</span>
-                <span class="task-status status-done">完成</span>
+            <span class="task-status status-running">运行</span>
+        </div>
+        <div class="task-item pending">
+            <span class="task-icon">⏳</span>
+            <div class="task-info">
+                <div class="task-name">飞书数据同步</div>
+                <div class="task-meta">等待中 · 5分钟前</div>
             </div>
-            <div class="task-item">
-                <span>📊 飞书数据获取</span>
-                <span class="task-status status-pending">待处理</span>
+            <span class="task-status status-pending">等待</span>
+        </div>
+        <div class="task-item completed">
+            <span class="task-icon">✅</span>
+            <div class="task-info">
+                <div class="task-name">Agent 菜单配置</div>
+                <div class="task-meta">已完成 · 10分钟前</div>
             </div>
+            <span class="task-status status-completed">完成</span>
         </div>
     </div>
     
@@ -257,13 +357,8 @@
         </div>
     </div>
     
-    <button class="btn btn-full" onclick="sendCommand('agents')">
-        <span class="btn-icon">📋</span>
-        <span class="btn-text">查看所有 Agents</span>
-    </button>
-    
     <div class="footer">
-        OpenClaw v1.0 | Ubuntu 24.04 | 8 Agents Ready
+        OpenClaw v1.0 | Ubuntu 24.04 | Kimi K2.5
     </div>
     
     <script>
@@ -282,6 +377,11 @@
             tg.sendData(cmd);
             setTimeout(() => tg.close(), 600);
         }
+        
+        // 模拟实时数据更新
+        setInterval(() => {
+            // 这里可以添加实时数据获取逻辑
+        }, 5000);
     </script>
 </body>
 </html>
