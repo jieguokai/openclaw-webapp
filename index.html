@@ -56,6 +56,88 @@
             margin-top: 5px;
         }
         
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+        }
+        .modal-title {
+            font-size: 1.1rem;
+            color: #00d4ff;
+        }
+        .modal-close {
+            background: #30363d;
+            border: none;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #30363d;
+            font-size: 0.85rem;
+        }
+        .detail-item:last-child { border-bottom: none; }
+        .detail-label { opacity: 0.8; }
+        .detail-value { color: #00d4ff; font-weight: bold; }
+        
+        /* Agent 列表 */
+        .agent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .agent-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #0d1117;
+            border-radius: 8px;
+        }
+        .agent-icon { font-size: 1.2rem; margin-right: 10px; }
+        .agent-info { flex: 1; }
+        .agent-name { font-size: 0.8rem; font-weight: 500; }
+        .agent-desc { font-size: 0.65rem; opacity: 0.6; }
+        .agent-status {
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.6rem;
+            background: #1e3a2f;
+            color: #4ade80;
+        }
+        
         /* 快捷命令面板 */
         .command-section {
             background: #161b22;
@@ -225,23 +307,185 @@
         <p>智能工作流控制台</p>
     </div>
     
-    <!-- 使用统计 -->
+    <!-- 使用统计 - 可点击 -->
     <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card" onclick="showModal('agents')">
             <div class="stat-value">8</div>
             <div class="stat-label">Agents</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="showModal('tasks')">
             <div class="stat-value">12</div>
             <div class="stat-label">任务</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="showModal('success')">
             <div class="stat-value">98%</div>
             <div class="stat-label">成功率</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="showModal('uptime')">
             <div class="stat-value">8h</div>
             <div class="stat-label">运行</div>
+        </div>
+    </div>
+    
+    <!-- Agents 详情弹窗 -->
+    <div class="modal" id="modal-agents">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">🤖 Agents 详情</span>
+                <button class="modal-close" onclick="closeModal('agents')">×</button>
+            </div>
+            <div class="agent-list">
+                <div class="agent-item">
+                    <span class="agent-icon">🎯</span>
+                    <div class="agent-info">
+                        <div class="agent-name">main_orchestrator</div>
+                        <div class="agent-desc">主控编排器</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-icon">🔍</span>
+                    <div class="agent-info">
+                        <div class="agent-name">data_analyst_agent</div>
+                        <div class="agent-desc">数据分析</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-icon">📋</span>
+                    <div class="agent-info">
+                        <div class="agent-name">product_prd_agent</div>
+                        <div class="agent-desc">PRD撰写</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-icon">📢</span>
+                    <div class="agent-info">
+                        <div class="agent-name">operation_campaign_agent</div>
+                        <div class="agent-desc">运营策划</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-icon">🛡️</span>
+                    <div class="agent-info">
+                        <div class="agent-name">risk_control_agent</div>
+                        <div class="agent-desc">风险审查</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-icon">🎨</span>
+                    <div class="agent-info">
+                        <div class="agent-name">content_publishing_agent</div>
+                        <div class="agent-desc">内容发布</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-icon">✨</span>
+                    <div class="agent-info">
+                        <div class="agent-name">ai_content_agent</div>
+                        <div class="agent-desc">AI内容生成</div>
+                    </div>
+                    <span class="agent-status">在线</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 任务详情弹窗 -->
+    <div class="modal" id="modal-tasks">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">📊 任务统计</span>
+                <button class="modal-close" onclick="closeModal('tasks')">×</button>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">今日任务</span>
+                <span class="detail-value">5</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">本周任务</span>
+                <span class="detail-value">12</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">本月任务</span>
+                <span class="detail-value">28</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">已完成</span>
+                <span class="detail-value">26</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">进行中</span>
+                <span class="detail-value">1</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">待处理</span>
+                <span class="detail-value">1</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 成功率详情弹窗 -->
+    <div class="modal" id="modal-success">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">✅ 成功率详情</span>
+                <button class="modal-close" onclick="closeModal('success')">×</button>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">总任务数</span>
+                <span class="detail-value">156</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">成功完成</span>
+                <span class="detail-value">153</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">失败任务</span>
+                <span class="detail-value">2</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">取消任务</span>
+                <span class="detail-value">1</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">平均耗时</span>
+                <span class="detail-value">2.3分钟</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">成功率</span>
+                <span class="detail-value" style="color: #4ade80;">98.1%</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 运行时间详情弹窗 -->
+    <div class="modal" id="modal-uptime">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">⏱️ 系统运行</span>
+                <button class="modal-close" onclick="closeModal('uptime')">×</button>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">本次启动</span>
+                <span class="detail-value">8小时 30分</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">总运行时间</span>
+                <span class="detail-value">127小时</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">启动次数</span>
+                <span class="detail-value">15</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">平均在线</span>
+                <span class="detail-value">99.2%</span>
+            </div>
         </div>
     </div>
     
@@ -375,21 +619,30 @@
         tg.setBackgroundColor('#0d1117');
         
         function sendCmd(cmd) {
-            // 显示加载提示
             tg.showPopup({
                 title: '🚀 启动 ' + cmd,
-                message: '正在发送命令到 OpenClaw...',
+                message: '正在发送命令...',
                 buttons: [{type: 'ok'}]
             });
-            
-            // 发送数据回 Telegram
             tg.sendData(cmd);
-            
-            // 关闭 Web App
-            setTimeout(() => {
-                tg.close();
-            }, 500);
+            setTimeout(() => tg.close(), 500);
         }
+        
+        function showModal(type) {
+            document.getElementById('modal-' + type).classList.add('active');
+        }
+        
+        function closeModal(type) {
+            document.getElementById('modal-' + type).classList.remove('active');
+        }
+        
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
